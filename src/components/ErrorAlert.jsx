@@ -2,7 +2,6 @@ import { Grid, Typography } from "@mui/material";
 import React from "react";
 
 const ErrorAlert = ({input}) => {
-  console.log(input)
   return (
     <Grid
       container

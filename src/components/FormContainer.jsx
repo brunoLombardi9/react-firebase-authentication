@@ -6,7 +6,7 @@ const FormContainer = ({ children, submitHandler }) => {
     <Box
       gap={3}
       padding={3}
-      backgroundColor="#fffff"
+      backgroundColor="#ffffff"
       sx={{
         width: {sm:"250px", md: "350px"},
         display: "flex",

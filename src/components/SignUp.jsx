@@ -10,7 +10,7 @@ const SignUp = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
-  const { signUp } = useAuthContext();
+  const { signUp, googleSignIn } = useAuthContext();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -31,6 +31,16 @@ const SignUp = () => {
       }
     } else {
       setError("Passwords dont match");
+    }
+  }
+
+  async function googleLogin(e) {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/home")
+    } catch (err) {
+      setError(err.message);
     }
   }
 
@@ -70,7 +80,7 @@ const SignUp = () => {
         Sign up
       </Button>
 
-      <GoogleButton style={{ width: "100%" }} />
+      <GoogleButton style={{ width: "100%" }} onClick={googleLogin}/>
 
       <Link to="/">Already have an account? Log In</Link>
     </FormContainer>
